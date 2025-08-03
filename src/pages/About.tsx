@@ -1,149 +1,319 @@
-import Layout from "@/components/Layout";
-import { Zap, Target, Users, Sparkles, Brain, Layers, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { 
+  Award, 
+  Users, 
+  Target, 
+  Heart, 
+  Shield, 
+  TrendingUp,
+  Building2,
+  Star,
+  MapPin,
+  Phone,
+  Mail
+} from 'lucide-react'
 
 const About = () => {
-  const features = [
+  const teamMembers = [
     {
-      icon: Brain,
-      title: "Sztuczna Inteligencja",
-      description: "Magic Studio, Text to Image, Magic Write - poznaj wszystkie narzędzia AI dostępne w Canvie",
-      stats: "15+ narzędzi AI"
+      name: 'Anna Kowalska',
+      position: 'Dyrektor Generalny',
+      experience: '15 lat doświadczenia',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face',
+      phone: '+48 123 456 789',
+      email: 'anna.kowalska@realestatepro.pl'
     },
     {
-      icon: Layers,
-      title: "Wszechstronne Narzędzia",
-      description: "Od podstawowych kształtów po zaawansowane animacje i efekty specjalne",
-      stats: "200+ funkcji"
+      name: 'Marek Nowak',
+      position: 'Agent Senior',
+      experience: '12 lat doświadczenia',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
+      phone: '+48 123 456 790',
+      email: 'marek.nowak@realestatepro.pl'
     },
     {
-      icon: Users,
-      title: "Współpraca Zespołowa",
-      description: "Brand Kit, udostępnianie projektów, komentarze i system zatwierdzeń",
-      stats: "Unlimited teams"
+      name: 'Karolina Wiśniewska',
+      position: 'Agent Nieruchomości',
+      experience: '8 lat doświadczenia',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face',
+      phone: '+48 123 456 791',
+      email: 'karolina.wisniewska@realestatepro.pl'
+    },
+    {
+      name: 'Tomasz Lewandowski',
+      position: 'Doradca Inwestycyjny',
+      experience: '10 lat doświadczenia',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
+      phone: '+48 123 456 792',
+      email: 'tomasz.lewandowski@realestatepro.pl'
+    }
+  ]
+
+  const values = [
+    {
+      icon: Heart,
+      title: 'Pasja do nieruchomości',
+      description: 'Kochamy to, co robimy i wkładamy serce w każdą transakcję.'
+    },
+    {
+      icon: Shield,
+      title: 'Bezpieczeństwo klientów',
+      description: 'Zapewniamy pełne bezpieczeństwo i transparentność wszystkich transakcji.'
     },
     {
       icon: Target,
-      title: "Integracje",
-      description: "Połączenia z najpopularniejszymi platformami i narzędziami marketingowymi",
-      stats: "50+ integracji"
+      title: 'Precyzja i dokładność',
+      description: 'Każdy szczegół ma znaczenie - dbamy o najwyższą jakość usług.'
+    },
+    {
+      icon: TrendingUp,
+      title: 'Stały rozwój',
+      description: 'Nieustannie się rozwijamy, aby oferować najlepsze rozwiązania.'
     }
-  ];
+  ]
 
-  const capabilities = [
-    { category: "Social Media", items: ["Instagram Posts & Stories", "Facebook Covers", "YouTube Thumbnails", "TikTok Videos"] },
-    { category: "Marketing", items: ["Ulotki & Plakaty", "Banery Reklamowe", "Email Headers", "Infografiki"] },
-    { category: "Biznes", items: ["Prezentacje", "Dokumenty", "Certyfikaty", "Wizytówki"] },
-    { category: "Video", items: ["Animowane Posty", "Intro/Outro", "Prezentacje Wideo", "Reklamy Video"] }
-  ];
+  const achievements = [
+    { number: '150+', label: 'Sprzedanych nieruchomości' },
+    { number: '500+', label: 'Zadowolonych klientów' },
+    { number: '15+', label: 'Lat doświadczenia' },
+    { number: '4.9/5', label: 'Ocena klientów' }
+  ]
 
   return (
-    <Layout>
-      {/* Hero Section */}
-      <section className="hero-bg py-20 cyber-grid">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <div className="inline-flex items-center px-4 py-2 bg-gradient-primary rounded-full text-primary-foreground text-sm font-medium mb-6">
-              <Zap className="w-4 h-4 mr-2" />
-              Kompleksowy Przewodnik po Canvie
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Header */}
+      <div className="text-center mb-16">
+        <h1 className="text-4xl font-bold mb-4">O nas</h1>
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          RealEstate Pro to wiodąca agencja nieruchomości w Polsce, 
+          która od ponad 15 lat pomaga klientom w realizacji ich marzeń o idealnym domu.
+        </p>
+      </div>
+
+      {/* Company Story */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="space-y-6">
+          <h2 className="text-3xl font-bold">Nasza historia</h2>
+          <p className="text-muted-foreground leading-relaxed">
+            RealEstate Pro powstało w 2009 roku z pasji do nieruchomości i chęci pomocy 
+            ludziom w znalezieniu ich wymarzonego domu. Od początku stawialiśmy na 
+            profesjonalizm, uczciwość i indywidualne podejście do każdego klienta.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Przez lata rozwinęliśmy się z małego biura w Warszawie do jednej z 
+            największych agencji nieruchomości w Polsce, obsługując klientów w całym kraju. 
+            Nasz zespół składa się z doświadczonych ekspertów, którzy znają rynek 
+            nieruchomości od podszewki.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Dziś jesteśmy dumni z tego, że pomogliśmy setkom rodzin znaleźć ich 
+            wymarzony dom i tysiącom inwestorów zrealizować ich plany finansowe.
+          </p>
+        </div>
+        <div className="relative">
+          <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+            <div className="text-center">
+              <Building2 className="h-24 w-24 mx-auto mb-4 text-muted-foreground" />
+              <p className="text-muted-foreground">Zdjęcie biura będzie tutaj</p>
             </div>
-            
-            <h1 className="text-5xl lg:text-6xl font-heading font-bold mb-6">
-              <span className="text-gradient">Odkryj Pełen Potencjał</span><br />
-              <span className="text-cyber">Platformy Canva</span>
-            </h1>
-            
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Canva to więcej niż narzędzie do projektowania. To kompletna platforma kreatywna 
-              z zaawansowanymi funkcjami AI, która rewolucjonizuje sposób tworzenia treści wizualnych.
-            </p>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Main Features */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-heading font-bold text-center mb-16">
-            <span className="text-gradient">Kluczowe Możliwości Canvy</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="glass-card p-6 rounded-2xl border border-primary/20 hover-lift group">
-                <div className="w-12 h-12 bg-gradient-primary rounded-xl flex items-center justify-center mb-4 group-hover:animate-glow">
-                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+      {/* Achievements */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        {achievements.map((achievement, index) => (
+          <div key={index} className="text-center">
+            <div className="text-4xl font-bold text-primary mb-2">{achievement.number}</div>
+            <div className="text-muted-foreground">{achievement.label}</div>
+          </div>
+        ))}
+      </div>
+
+      {/* Values */}
+      <div className="mb-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Nasze wartości</h2>
+          <p className="text-muted-foreground">
+            To, co nas wyróżnia i co jest fundamentem naszej działalności
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {values.map((value, index) => {
+            const Icon = value.icon
+            return (
+              <Card key={index} className="text-center">
+                <CardContent className="p-6">
+                  <div className="h-12 w-12 rounded-lg bg-primary flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-6 w-6 text-primary-foreground" />
+                  </div>
+                  <h3 className="font-semibold mb-2">{value.title}</h3>
+                  <p className="text-muted-foreground text-sm">{value.description}</p>
+                </CardContent>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Team */}
+      <div className="mb-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Nasz zespół</h2>
+          <p className="text-muted-foreground">
+            Poznaj ekspertów, którzy pomogą Ci znaleźć wymarzoną nieruchomość
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {teamMembers.map((member, index) => (
+            <Card key={index} className="text-center">
+              <CardContent className="p-6">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-24 h-24 rounded-full object-cover mx-auto mb-4"
+                />
+                <h3 className="font-semibold mb-1">{member.name}</h3>
+                <p className="text-primary font-medium mb-2">{member.position}</p>
+                <p className="text-sm text-muted-foreground mb-4">{member.experience}</p>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center justify-center space-x-2">
+                    <Phone className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-muted-foreground">{member.phone}</span>
+                  </div>
+                  <div className="flex items-center justify-center space-x-2">
+                    <Mail className="h-4 w-4 text-muted-foreground" />
+                    <span className="text-muted-foreground">{member.email}</span>
+                  </div>
                 </div>
-                <h3 className="font-heading font-semibold text-lg mb-2 group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {feature.description}
-                </p>
-                <div className="text-primary font-mono text-sm">
-                  {feature.stats}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+
+      {/* Services */}
+      <div className="mb-16">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold mb-4">Nasze usługi</h2>
+          <p className="text-muted-foreground">
+            Kompleksowe wsparcie w każdej transakcji nieruchomości
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Building2 className="h-5 w-5 mr-2" />
+                Sprzedaż nieruchomości
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Profesjonalna sprzedaż z maksymalną wartością dla klienta. 
+                Oferujemy kompleksową obsługę od wyceny po podpisanie aktu notarialnego.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Bezpłatna wycena</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Profesjonalne zdjęcia</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Marketing i promocja</span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </CardContent>
+          </Card>
 
-      {/* Capabilities Grid */}
-      <section className="py-20 bg-gradient-card">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-heading font-bold mb-6">
-              <span className="text-gradient">Co Możesz Tworzyć w Canvie?</span>
-            </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Tysiące szablonów dla każdej branży i okazji. Od prostych postów po złożone kampanie marketingowe.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {capabilities.map((cap, index) => (
-              <div key={index} className="glass-card p-6 rounded-xl border border-secondary/20 hover-lift">
-                <h3 className="font-heading font-semibold text-lg mb-4 text-secondary">
-                  {cap.category}
-                </h3>
-                <div className="space-y-2">
-                  {cap.items.map((item, itemIndex) => (
-                    <div key={itemIndex} className="flex items-center text-sm">
-                      <Sparkles className="w-3 h-3 text-secondary mr-2" />
-                      <span className="text-muted-foreground">{item}</span>
-                    </div>
-                  ))}
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Users className="h-5 w-5 mr-2" />
+                Wynajem nieruchomości
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Bezpieczne wynajmowanie z pełną obsługą prawną. 
+                Pomagamy zarówno wynajmującym, jak i najemcom.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Weryfikacja najemców</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Umowy najmu</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Obsługa prawna</span>
                 </div>
               </div>
-            ))}
-          </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center">
+                <Award className="h-5 w-5 mr-2" />
+                Wycena nieruchomości
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground mb-4">
+                Dokładna wycena oparta na aktualnych cenach rynkowych. 
+                Oferujemy bezpłatne wyceny dla naszych klientów.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Analiza rynku</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Raport wyceny</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="h-2 w-2 bg-primary rounded-full"></div>
+                  <span className="text-sm text-muted-foreground">Bezpłatna usługa</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      </div>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="glass-card p-12 rounded-2xl border border-primary/20">
-            <h2 className="text-3xl font-heading font-bold mb-6 text-gradient">
-              Rozpocznij Swoją Przygodę z Canvą
-            </h2>
-            <p className="text-muted-foreground text-lg mb-8">
-              Odkryj szczegółowe przewodniki, naucz się najnowszych funkcji i stwórz projekty, które wyróżnią Cię na rynku.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-cyber group">
-                Eksploruj Narzędzia
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="glass-card border border-secondary/30 px-6 py-3 rounded-xl hover:border-secondary hover-magenta transition-all duration-300">
-                Zobacz Canva AI
-              </button>
-            </div>
+      <Card className="bg-primary text-primary-foreground">
+        <CardContent className="p-8 text-center">
+          <h2 className="text-3xl font-bold mb-4">
+            Gotowy na współpracę?
+          </h2>
+          <p className="text-lg mb-6 opacity-90">
+            Skontaktuj się z nami i rozpocznij swoją przygodę z nieruchomościami
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="tel:+48123456789" className="inline-flex items-center justify-center px-6 py-3 bg-primary-foreground text-primary font-medium rounded-lg hover:bg-primary-foreground/90 transition-colors">
+              <Phone className="h-4 w-4 mr-2" />
+              Zadzwoń teraz
+            </a>
+            <a href="mailto:kontakt@realestatepro.pl" className="inline-flex items-center justify-center px-6 py-3 border border-primary-foreground text-primary-foreground font-medium rounded-lg hover:bg-primary-foreground/10 transition-colors">
+              <Mail className="h-4 w-4 mr-2" />
+              Napisz wiadomość
+            </a>
           </div>
-        </div>
-      </section>
-    </Layout>
-  );
-};
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
 
-export default About;
+export default About
